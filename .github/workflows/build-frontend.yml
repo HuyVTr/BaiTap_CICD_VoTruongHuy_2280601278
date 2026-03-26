@@ -1,0 +1,32 @@
+name: Build and Push Frontend Image
+
+on:
+  push:
+    branches: [ "main", "master" ]
+    paths:
+      - 'frontend-react/**'
+  workflow_dispatch:
+
+jobs:
+  build_frontend:
+    runs-on: ubuntu-latest
+    steps:
+      # Step 1: Action lấy code từ Github
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      # Step 2: Action Đăng nhập Docker Hub
+      - name: Docker Login
+        uses: docker/login-action@v3
+        with:
+          username: ${{ secrets.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_TOKEN }}
+
+      # Step 3: Action Đóng gói & Đẩy Image
+      - name: Build and Push Docker Image
+        uses: docker/build-push-action@v5
+        with:
+          context: ./frontend-react
+          file: ./frontend-react/Dockerfile
+          push: true
+          tags: ${{ secrets.DOCKERHUB_USERNAME }}/bai-tap-2:latest
