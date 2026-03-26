@@ -1,0 +1,14 @@
+{
+  "configurations": [
+    {
+      "type": "java",
+      "name": "Spring Boot-VoTruongHuy2280601278Application<VoTruongHuy_2280601278>",
+      "request": "launch",
+      "cwd": "${workspaceFolder}",
+      "mainClass": "com.example.VoTruongHuy_2280601278.VoTruongHuy2280601278Application",
+      "projectName": "VoTruongHuy_2280601278",
+      "args": "",
+      "envFile": "${workspaceFolder}/.env"
+    }
+  ]
+}
