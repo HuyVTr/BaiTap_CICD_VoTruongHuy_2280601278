@@ -19,8 +19,8 @@ jobs:
       - name: Docker Login
         uses: docker/login-action@v3
         with:
-          username: ${{ secrets.HHHHHVVVVV }}
-          password: ${{ secrets.NIGAPASSWORD }}
+          username: ${{ secrets.USERNAME }}
+          password: ${{ secrets.PASSWORD }}
 
       # Step 3: Action Đóng gói & Đẩy Image
       - name: Build and Push Docker Image
@@ -29,4 +29,4 @@ jobs:
           context: ./VoTruongHuy_2280601278
           file: ./VoTruongHuy_2280601278/Dockerfile
           push: true
-          tags: ${{ secrets.HHHHHVVVVV }}/bai-tap-1:latest
+          tags: ${{ secrets.USERNAME }}/bai-tap-1:latest
